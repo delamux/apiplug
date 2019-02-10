@@ -39,7 +39,6 @@ return [
                     'default' => [
                         //auth configuration
                         'Auth' => [
-                            'allow' => '*', // PUBLIC ACCESS for all API endpoints, remove this line to secure
                             'authorize' => [
                                 'CakeDC/Api.Crud' => []
                             ],
