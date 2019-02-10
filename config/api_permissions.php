@@ -67,20 +67,6 @@ return [
             'controller' => 'Users',
             'action' => ['profile', 'logout', 'linkSocial', 'callbackLinkSocial'],
         ],
-        [
-            'role' => '*',
-            'plugin' => 'CakeDC/Users',
-            'controller' => 'Users',
-            'action' => 'resetGoogleAuthenticator',
-            'allowed' => function (array $user, $role, \Cake\Http\ServerRequest $request) {
-                $userId = \Cake\Utility\Hash::get($request->getAttribute('params'), 'pass.0');
-                if (!empty($userId) && !empty($user)) {
-                    return $userId === $user['id'];
-                }
-
-                return false;
-            }
-        ],
         //all roles allowed to Pages/display
         [
             'role' => '*',

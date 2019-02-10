@@ -39,14 +39,23 @@ return [
                     'default' => [
                         //auth configuration
                         'Auth' => [
+                            'storage' => 'Memory',
                             'authorize' => [
                                 'CakeDC/Api.SimpleRbac'
                             ],
                             'authenticate' => [
-                                'CakeDC/Api.Token' => [
-                                    'require_ssl' => false,
-                                ]
+                                'CakeDC/Api.Jwt' => [
+                                    'userModel' => 'CakeDC/Users.Users',
+                                    'fields' => [
+                                        'username' => 'id'
+                                    ],
+
+                                    'parameter' => 'token',
+                                    'queryDatasource' => true,
+                                ],
                             ],
+                            'unauthorizedRedirect' => false,
+                            'checkAuthIn' => 'Controller.initialize',
                         ],
                         // default app extensions
                         'Extension' => [
