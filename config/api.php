@@ -40,7 +40,7 @@ return [
                         //auth configuration
                         'Auth' => [
                             'authorize' => [
-                                'CakeDC/Api.Crud' => []
+                                'CakeDC/Api.SimpleRbac'
                             ],
                             'authenticate' => [
                                 'CakeDC/Api.Token' => [
