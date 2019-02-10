@@ -64,6 +64,10 @@ class PostsTable extends Table
             ->allowEmptyString('id', 'create');
 
         $validator
+            ->scalar('user_id')
+            ->notEmpty('user_id');
+
+        $validator
             ->scalar('title')
             ->maxLength('title', 255)
             ->allowEmptyString('title');

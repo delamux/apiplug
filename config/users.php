@@ -1,17 +1,5 @@
 <?php
 
-/**
- * Copyright 2010 - 2017, Cake Development Corporation (https://www.cakedc.com)
- *
- * Licensed under The MIT License
- * Redistributions of files must retain the above copyright notice.
- *
- * @copyright Copyright 2010 - 2017, Cake Development Corporation (https://www.cakedc.com)
- * @license MIT License (http://www.opensource.org/licenses/mit-license.php)
- */
-use Cake\Core\Configure;
-use Cake\Routing\Router;
-
 $config = [
     'Users' => [
         // Table used to manage users
@@ -126,31 +114,7 @@ $config = [
         ],
     ],
     // default configuration used to auto-load the Auth Component, override to change the way Auth works
-    'Auth' => [
-        'loginAction' => [
-            'plugin' => 'CakeDC/Users',
-            'controller' => 'Users',
-            'action' => 'login',
-            'prefix' => false
-        ],
-        'authenticate' => [
-            'CakeDC/Auth.ApiKey',
-            'CakeDC/Auth.RememberMe',
-            'Form',
-        ],
-        'authorize' => [
-            'CakeDC/Auth.Superuser',
-            'CakeDC/Auth.SimpleRbac' => [
-                // autoload permissions.php
-                'autoload_config' => 'permissions',
-                // role field in the Users table
-                'role_field' => 'role',
-                // default role, used in new users registered and also as role matcher when no role is available
-                'default_role' => 'user',
-                'log' => false
-            ]
-        ],
-    ]
+    'Auth' => []
 ];
 
 return $config;

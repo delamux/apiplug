@@ -2,9 +2,8 @@
 
 namespace App\Service;
 
-use CakeDC\Api\Service\Service;
+use CakeDC\Api\Service\CrudService;
 
-class PostsService extends Service
+class PostsService extends CrudService
 {
-
 }
