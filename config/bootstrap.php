@@ -207,7 +207,22 @@ Type::build('timestamp')
  * Plugin::load('Migrations'); //Loads a single plugin named Migrations
  *
  */
+//Load CakeDC Users
+Plugin::load('CakeDC/Users', ['bootstrap' => false, 'routes' => true]);
+Configure::load('users');
 
+//Load CakeDC API
+Plugin::load('CakeDC/Api', ['bootstrap' => false, 'routes' => true]);
+Configure::load('api');
+if (!Log::engine('api')) {
+    Log::setConfig('api', [
+        'className' => Configure::read('Api.Log.className'),
+        'path' => LOGS,
+        'scopes' => Configure::read('Api.Log.scopes'),
+        'levels' => Configure::read('Api.Log.levels'),
+        'file' => Configure::read('Api.Log.file'),
+    ]);
+}
 /*
  * Only try to load DebugKit in development mode
  * Debug Kit should not be installed on a production system
