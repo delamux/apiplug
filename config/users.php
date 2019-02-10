@@ -134,70 +134,21 @@ $config = [
             'prefix' => false
         ],
         'authenticate' => [
-            'all' => [
-                'finder' => 'auth',
-            ],
             'CakeDC/Auth.ApiKey',
             'CakeDC/Auth.RememberMe',
             'Form',
         ],
         'authorize' => [
             'CakeDC/Auth.Superuser',
-            'CakeDC/Auth.SimpleRbac',
-        ],
-    ],
-    'OAuth' => [
-        'path' => ['plugin' => 'CakeDC/Users', 'controller' => 'Users', 'action' => 'socialLogin', 'prefix' => null],
-        'providers' => [
-            'facebook' => [
-                'className' => 'League\OAuth2\Client\Provider\Facebook',
-                'options' => [
-                    'graphApiVersion' => 'v2.8', //bio field was deprecated on >= v2.8
-                    'redirectUri' => Router::fullBaseUrl() . '/auth/facebook',
-                    'linkSocialUri' => Router::fullBaseUrl() . '/link-social/facebook',
-                    'callbackLinkSocialUri' => Router::fullBaseUrl() . '/callback-link-social/facebook',
-                ]
-            ],
-            'twitter' => [
-                'options' => [
-                    'redirectUri' => Router::fullBaseUrl() . '/auth/twitter',
-                    'linkSocialUri' => Router::fullBaseUrl() . '/link-social/twitter',
-                    'callbackLinkSocialUri' => Router::fullBaseUrl() . '/callback-link-social/twitter',
-                ]
-            ],
-            'linkedIn' => [
-                'className' => 'League\OAuth2\Client\Provider\LinkedIn',
-                'options' => [
-                    'redirectUri' => Router::fullBaseUrl() . '/auth/linkedIn',
-                    'linkSocialUri' => Router::fullBaseUrl() . '/link-social/linkedIn',
-                    'callbackLinkSocialUri' => Router::fullBaseUrl() . '/callback-link-social/linkedIn',
-                ]
-            ],
-            'instagram' => [
-                'className' => 'League\OAuth2\Client\Provider\Instagram',
-                'options' => [
-                    'redirectUri' => Router::fullBaseUrl() . '/auth/instagram',
-                    'linkSocialUri' => Router::fullBaseUrl() . '/link-social/instagram',
-                    'callbackLinkSocialUri' => Router::fullBaseUrl() . '/callback-link-social/instagram',
-                ]
-            ],
-            'google' => [
-                'className' => 'League\OAuth2\Client\Provider\Google',
-                'options' => [
-                    'userFields' => ['url', 'aboutMe'],
-                    'redirectUri' => Router::fullBaseUrl() . '/auth/google',
-                    'linkSocialUri' => Router::fullBaseUrl() . '/link-social/google',
-                    'callbackLinkSocialUri' => Router::fullBaseUrl() . '/callback-link-social/google',
-                ]
-            ],
-            'amazon' => [
-                'className' => 'Luchianenco\OAuth2\Client\Provider\Amazon',
-                'options' => [
-                    'redirectUri' => Router::fullBaseUrl() . '/auth/amazon',
-                    'linkSocialUri' => Router::fullBaseUrl() . '/link-social/amazon',
-                    'callbackLinkSocialUri' => Router::fullBaseUrl() . '/callback-link-social/amazon',
-                ]
-            ],
+            'CakeDC/Auth.SimpleRbac' => [
+                // autoload permissions.php
+                'autoload_config' => 'permissions',
+                // role field in the Users table
+                'role_field' => 'role',
+                // default role, used in new users registered and also as role matcher when no role is available
+                'default_role' => 'user',
+                'log' => false
+            ]
         ],
     ]
 ];
