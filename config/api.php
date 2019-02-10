@@ -44,7 +44,7 @@ return [
                                 'CakeDC/Api.SimpleRbac'
                             ],
                             'authenticate' => [
-                                'CakeDC/Api.Jwt' => [
+                                'Jwt' => [
                                     'userModel' => 'CakeDC/Users.Users',
                                     'fields' => [
                                         'username' => 'id'
