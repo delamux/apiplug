@@ -30,6 +30,8 @@ use Firebase\JWT\JWT;
  * @copyright 2015-2018 ADmad
  * @license MIT
  *
+ * This Auth adapter was modified and adapted for this App
+ *
  * @see http://jwt.io
  * @see http://tools.ietf.org/html/draft-ietf-oauth-json-web-token
  */
