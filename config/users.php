@@ -10,8 +10,13 @@ $config = [
         'auth' => true,
         // Password Hasher
         'passwordHasher' => '\Cake\Auth\DefaultPasswordHasher',
-        // token expiration, 1 hour
-        'Token' => ['expiration' => 3600],
+        // token expiration,
+        //  - 3600 seconds
+        //  - 24 hours
+        //  - 31 days
+        'Token' => [
+            'expiration' => 3600 * 24 * 31
+        ],
         'Email' => [
             // determines if the user should include email
             'required' => true,

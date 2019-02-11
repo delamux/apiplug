@@ -1,6 +1,7 @@
 <?php
 namespace App\Service\Action\Auth;
 
+use Cake\Core\Configure;
 use Cake\Utility\Security;
 use CakeDC\Api\Service\Action\Auth\LoginAction as ApiLogin;
 use CakeDC\Users\Controller\Component\UsersAuthComponent;
@@ -38,7 +39,7 @@ class LoginAction extends ApiLogin
             'data' => [
                 'token' => JWT::encode([
                     'sub' => $user['id'],
-                    'exp' =>  time() + 604800
+                    'exp' =>  time() + Configure::read('Users.Token.expiration')
                 ],
                     Security::getSalt())
             ],
