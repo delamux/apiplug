@@ -37,7 +37,6 @@ return [
                             'authenticate' => [
                                 'Jwt' => [
                                     'userModel' => 'CakeDC/Users.Users',
-                                    'queryDatasource' => false,
                                 ],
                             ],
                         ],
