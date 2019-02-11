@@ -3,14 +3,14 @@
 namespace App\Service;
 
 use App\Service\Action\Auth\LoginAction;
-use CakeDC\Api\Service\Service;
+use CakeDC\Api\Service\AuthService as ApiAuthService;
 
 /**
  * Class AuthService
  *
  * @package CakeDC\Api\Service
  */
-class AuthService extends Service
+class AuthService extends ApiAuthService
 {
 
     /**
@@ -19,9 +19,8 @@ class AuthService extends Service
      */
     public function initialize()
     {
+        parent::initialize();
         $methods = ['method' => ['POST'], 'mapCors' => true];
         $this->mapAction('login', LoginAction::class, $methods);
-
-        parent::initialize();
     }
 }
