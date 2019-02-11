@@ -36,8 +36,9 @@ return [
                             ],
                             'authenticate' => [
                                 'Jwt' => [
-                                    'userModel' => 'CakeDC/Users.Users'
-                                ]
+                                    'userModel' => 'CakeDC/Users.Users',
+                                    'queryDatasource' => false,
+                                ],
                             ],
                         ],
                         // default app extensions

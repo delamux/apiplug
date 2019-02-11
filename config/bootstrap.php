@@ -208,9 +208,7 @@ Type::build('timestamp')
  *
  */
 //Load CakeDC Users
-Plugin::load('CakeDC/Users', ['bootstrap' => false, 'routes' => true]);
-Configure::load('users');
-
+Plugin::load('CakeDC/Users', ['bootstrap' => false, 'routes' => false]);
 //Load plugin JWT
 Plugin::load('ADmad/JwtAuth');
 
