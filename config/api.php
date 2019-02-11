@@ -45,17 +45,9 @@ return [
                             ],
                             'authenticate' => [
                                 'Jwt' => [
-                                    'userModel' => 'CakeDC/Users.Users',
-                                    'fields' => [
-                                        'username' => 'id'
-                                    ],
-
-                                    'parameter' => 'token',
-                                    'queryDatasource' => true,
-                                ],
+                                    'userModel' => 'CakeDC/Users.Users'
+                                ]
                             ],
-                            'unauthorizedRedirect' => false,
-                            'checkAuthIn' => 'Controller.initialize',
                         ],
                         // default app extensions
                         'Extension' => [
