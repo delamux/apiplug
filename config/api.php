@@ -37,6 +37,7 @@ return [
                             'authenticate' => [
                                 'Jwt' => [
                                     'userModel' => 'CakeDC/Users.Users',
+                                    'require_ssl' => false,
                                 ],
                             ],
                         ],

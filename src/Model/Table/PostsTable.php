@@ -61,7 +61,7 @@ class PostsTable extends Table
     {
         $validator
             ->integer('id')
-            ->allowEmptyString('id', 'create');
+            ->allowEmpty('id', 'create');
 
         $validator
             ->scalar('user_id')
@@ -70,11 +70,11 @@ class PostsTable extends Table
         $validator
             ->scalar('title')
             ->maxLength('title', 255)
-            ->allowEmptyString('title');
+            ->allowEmpty('title');
 
         $validator
             ->scalar('body')
-            ->allowEmptyString('body');
+            ->allowEmpty('body');
 
         return $validator;
     }
