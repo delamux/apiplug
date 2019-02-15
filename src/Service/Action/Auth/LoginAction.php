@@ -38,6 +38,9 @@ class LoginAction extends ApiLogin
             'success' => true,
             'data' => [
                 'token' => JWT::encode([
+                    'username' => $user['username'],
+                    'email' => $user['email'],
+                    'name' => $user['first_name'],
                     'sub' => $user['id'],
                     'exp' =>  time() + Configure::read('Users.Token.expiration')
                 ],
