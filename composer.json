@@ -4,6 +4,12 @@
     "homepage": "https://cakephp.org",
     "type": "project",
     "license": "MIT",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/delamux/cakephp-api"
+        }
+    ],
     "require": {
         "php": ">=5.6",
         "admad/cakephp-jwt-auth": "^2.3",
