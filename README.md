@@ -1,7 +1,9 @@
 # CakePHP Application CakeDC/Api & Admad/cakephp-jwt-auth
 
-* Working with CakeDC/Api plugin And JWT (Jason Web Token) authenticate, the jwt was adapted 
-for de Api plugin
+* Working with CakeDC/Api plugin And JWT (Jason Web Token) authentication, the jwt was adapted 
+for de Api plugin from * [ADmad Auth Plugin](https://github.com/ADmad/cakephp-jwt-auth)
+
+
 
 ## Installation
 
