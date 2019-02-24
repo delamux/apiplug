@@ -10,11 +10,6 @@ use Firebase\JWT\JWT;
 
 class LoginAction extends ApiLogin
 {
-    public function validates()
-    {
-        return true;
-    }
-
     /**
      * Login JWT action rewrite
      *
@@ -37,14 +32,16 @@ class LoginAction extends ApiLogin
         $result = [
             'success' => true,
             'data' => [
-                'token' => JWT::encode([
-                    'username' => $user['username'],
-                    'email' => $user['email'],
-                    'name' => $user['first_name'],
-                    'sub' => $user['id'],
-                    'exp' =>  time() + Configure::read('Users.Token.expiration')
-                ],
-                    Security::getSalt())
+                'token' => JWT::encode(
+                    [
+                        'username' => $user['username'],
+                        'email' => $user['email'],
+                        'name' => $user['first_name'],
+                        'sub' => $user['id'],
+                        'exp' => time() + Configure::read('Users.Token.expiration')
+                    ],
+                    Security::getSalt()
+                )
             ],
             '_serialize' => ['success', 'data']
         ];
