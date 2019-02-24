@@ -3,6 +3,7 @@
 namespace App\Service;
 
 use App\Service\Action\Auth\LoginAction;
+use App\Service\Action\Auth\RegisterAction;
 use CakeDC\Api\Service\AuthService as ApiAuthService;
 
 /**
@@ -22,5 +23,6 @@ class AuthService extends ApiAuthService
         parent::initialize();
         $methods = ['method' => ['POST'], 'mapCors' => true];
         $this->mapAction('login', LoginAction::class, $methods);
+        $this->mapAction('register', RegisterAction::class, $methods);
     }
 }
