@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "b87182985ef7b1cb730f4e65838aecae",
+    "content-hash": "319e356d40578a9c0d62dce1d070524c",
     "packages": [
         {
             "name": "admad/cakephp-jwt-auth",
@@ -154,16 +154,16 @@
         },
         {
             "name": "cakedc/cakephp-api",
-            "version": "dev-jwt",
+            "version": "dev-jwt-implement",
             "source": {
                 "type": "git",
                 "url": "https://github.com/delamux/cakephp-api.git",
-                "reference": "7c6f5c020a90600cd619b10ed0d58a58562ceaff"
+                "reference": "3683379713f12f99ea10409a277c3c93e0b4c7d7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/delamux/cakephp-api/zipball/7c6f5c020a90600cd619b10ed0d58a58562ceaff",
-                "reference": "7c6f5c020a90600cd619b10ed0d58a58562ceaff",
+                "url": "https://api.github.com/repos/delamux/cakephp-api/zipball/3683379713f12f99ea10409a277c3c93e0b4c7d7",
+                "reference": "3683379713f12f99ea10409a277c3c93e0b4c7d7",
                 "shasum": ""
             },
             "require": {
@@ -214,7 +214,7 @@
                 "issues": "https://github.com/CakeDC/cakephp-api/issues",
                 "source": "https://github.com/CakeDC/cakephp-api"
             },
-            "time": "2019-02-16 22:31:35"
+            "time": "2019-02-24 19:28:06"
         },
         {
             "name": "cakedc/users",

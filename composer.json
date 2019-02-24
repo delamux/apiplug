@@ -13,7 +13,7 @@
     "require": {
         "php": ">=5.6",
         "admad/cakephp-jwt-auth": "^2.3",
-        "cakedc/cakephp-api": "dev-jwt",
+        "cakedc/cakephp-api": "dev-jwt-implement",
         "cakephp/cakephp": "3.6.*",
         "cakephp/migrations": "^1.8.0",
         "cakephp/plugin-installer": "^1.0",
