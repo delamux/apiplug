@@ -16,13 +16,14 @@ for de Api plugin from * [ADmad Auth Plugin](https://github.com/ADmad/cakephp-jw
 
 ### login action [POST]
 
-* Url: myapp.local/auth/login
-* Headers:
-    * key: Content-Type
-    * value: application/x-www-form-urlencoded
-* Body:
-    * username / user
-    * password / yourpass
+```bash
+curl -X POST \
+  http://localhost:8765/api/auth/login \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  -H 'cache-control: no-cache' \
+  -d 'username=admin&password=password'
+
+```
     
 The response should be something like this:
     
@@ -45,12 +46,13 @@ The response should be something like this:
 
 ### index action [GET]
 
-* Url: myapp.local/posts
-* Authorization:
-    * Bearer Token
-    * token: (data.token string in the action before)
-    
-The response should be something like this:
+```bash
+# Change the {mega-string-toke}
+curl -X GET \
+  http://localhost:8765/api/posts \
+  -H 'Authorization: Bearer YOUR-TOKEN' \
+  -H 'cache-control: no-cache'
+```
     
 ````json
 {
@@ -89,14 +91,13 @@ The response should be something like this:
 ````
 ### add action [POST]
 
-* Url: myapp.local/posts
-* Authorization:
-    * Bearer Token
-    * token: (data.token string in the action before)
-* Body: x-www-form-urlencoded
-    * key: user_id     /   value: 3cc5ca7e-df19-4724-9ab2-0bf447e19abc
-    * key: title     /   value: my second post
-    * key: body     /   value: my second post content
+```bash
+curl -X POST \
+  http://localhost:8765/api/posts \
+  -H 'Authorization: Bearer YOUR-TOKEN' \
+  -H 'cache-control: no-cache' \
+  -d 'user_id=1&title=hello-jwt&body=mi-post-with-jwt-content'
+```
     
 The response should be something like this:
 ````json
@@ -110,6 +111,77 @@ The response should be something like this:
         "modified": "2019-02-11T00:36:07+00:00",
         "id": 9
     },
+    "links": []
+}
+````
+### update action [PUT]
+
+```bash
+curl -X PUT \
+  http://localhost:8765/api/posts/7 \
+  -H 'Authorization: Bearer YOUR-TOKEN' \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  -d 'id=7&user_id=3cc5ca7e-df19-4724-9ab2-0bf447e19abc&body=this%20the%20post%20modified'
+```
+    
+The response should be something like this:
+````json
+{
+    "status": "success",
+        "data": {
+            "id": 7,
+            "user_id": "3cc5ca7e-df19-4724-9ab2-0bf447e19abc",
+            "title": "this is the test post",
+            "body": "this the post modified",
+            "created": "2019-02-10T23:36:50+00:00",
+            "modified": "2019-02-25T00:37:50+00:00"
+        },
+
+    "links": []
+}
+````
+
+
+### view action [GET]
+
+```bash
+curl -X GET \
+  http://localhost:8765/api/posts/7 \
+  -H 'Authorization: Bearer YOUR-TOKEN' \
+  
+```
+    
+The response should be something like this:
+````json
+{
+    "status": "success",
+       "data": {
+           "id": 7,
+           "user_id": "3cc5ca7e-df19-4724-9ab2-0bf447e19abc",
+           "title": "This is a new post",
+           "body": "post content",
+           "created": "2019-02-10T23:36:50+00:00",
+           "modified": "2019-02-10T23:36:50+00:00"
+       },
+
+    "links": []
+}
+````
+
+### Delete action [DELETE]
+
+```bash
+curl -X DELETE \
+  http://localhost:8765/api/posts/21 \
+  -H 'Authorization: Bearer YOUR-TOKEN' \
+  
+```
+    
+The response should be something like this:
+````json
+{
+    "status": "success",
+    "data": true,
     "links": []
 }
 ````
